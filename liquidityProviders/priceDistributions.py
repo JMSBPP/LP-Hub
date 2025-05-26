@@ -6,9 +6,8 @@ from interfaces.IntervalToDistributionStdStrategy import IntervalToDistributionS
 
 #=========DATA STRUCTURES============
 
-from typing import tuple
-import numpy as np
-
+from numpy import ndarray as Vector
+from pandas import Interval
 
 #=======MATH TYPES =========
 import math
@@ -17,10 +16,10 @@ from scipy.stats import norm as gaussian
 
         
 
-# TODO: Replace tuple for a more suitable data structure for price intervals
+# TODO: Replace Interval for a more suitable data structure for price intervals
 class IntervalToDistribution:
 
-    def __init__(self, meanPrice: float, interval: tuple[float, float], distribution: Distribution):
+    def __init__(self, meanPrice: float, interval: Interval, distribution: Distribution):
         self.meanPrice = meanPrice
         self.interval = interval
         self.distribution = distribution
@@ -43,18 +42,18 @@ class IntervalToDistribution:
 class GaussianDistribution(IntervalToDistributionStdStrategy):
     def __init__(self):
         super().__init__(Distribution.GAUSSIAN)
-    def calculateFixedStandardDeviation(self, size: int, meanPrice: float, interval: tuple[float, float]) -> float:
+    def calculateFixedStandardDeviation(self, size: int, meanPrice: float, interval: Interval) -> float:
         std_dev = (interval[1] - interval[0]) / 6
         return std_dev
-    def generateRandomSample(self, size: int, meanPrice: float, interval: tuple[float, float]) -> list[float]:
+    def generateRandomSample(self, size: int, meanPrice: float, interval: Interval) -> list[float]:
         std_dev = self.calculateFixedStandardDeviation(size, meanPrice, interval)
         return [random.gauss(meanPrice, std_dev) for _ in range(size)]
-    def generateLiquidityDensity(self, sampleSize: int, meanPrice: float, interval: tuple[float, float]) -> list[float]:
+    def generateLiquidityDensity(self, sampleSize: int, meanPrice: float, interval: Interval) -> list[float]:
         priceValues = self.generateRandomSample(sampleSize, meanPrice, interval)
         std_dev = self.calculateFixedStandardDeviation(sampleSize, meanPrice, interval)
         density = gaussian.pdf(priceValues, loc=meanPrice, scale=std_dev)
         return density.tolist()
-    def generateCummulativeLiquidity(self, priceSubInterval: tuple[float, float]) -> float:
+    def generateCummulativeLiquidity(self, priceSubInterval: Interval) -> float:
         ## check that the price sub-interval is within the main interval
         if priceSubInterval[0] < self.interval[0] or priceSubInterval[1] > self.interval[1]:
             raise ValueError("Price sub-interval must be within the main interval.")
@@ -62,7 +61,7 @@ class GaussianDistribution(IntervalToDistributionStdStrategy):
         return  cummulativeLiquidityWithinSubInterval
     
 class liquidityDensityFunction(IntervalToDistribution):
-    def __init__(self,meanPrice: float, interval: tuple[float, float], priceBelief: Distribution):
+    def __init__(self,meanPrice: float, interval: Interval, priceBelief: Distribution):
         super().__init__(meanPrice, interval, priceBelief)
         self.randomSample = None  # Density function will be set later
         self.liquidityDensity = None
