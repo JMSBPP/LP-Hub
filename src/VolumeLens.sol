@@ -53,7 +53,7 @@ contract VolumeLens is IReactive, AbstractPausableReactive{
 
     constructor(
         ILPHub _lpHub,
-            PoolId id,
+        PoolId id,
         IPoolManager _poolManager,
         uint256 _uniswapV4ChainId
     ){

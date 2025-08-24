@@ -10,9 +10,12 @@ remappings = [
     "forge-std/=lib/forge-std/src/",
     "@openzeppelin/=lib/openzeppelin-contracts/",
     "@openzeppelin-upgradeable/=lib/openzeppelin-contract-upgradeable/",
-    "solmate/=lib/solmate/src/",
+    "solmate/=lib/solmate/",
     "@reactive-network/=lib/reactive-smart-contract-demos/lib/reactive-lib/src/"
 ]
 
+[rpc_endpoints]
+sepolia = "https://gateway.tenderly.co/public/sepolia"
+reactive-testnet="https://lasna-rpc.rnk.dev/"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

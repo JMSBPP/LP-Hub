@@ -13,6 +13,9 @@ contract LPHub is ILPHub, AbstractCallback, ImmutableState{
     using StateLibrary for IPoolManager;
     using EnumerableMap for EnumerableMap.UintToUintMap; 
     
+    
+    // NOTE: This is only for debugging
+    event Received(bytes);
     constructor(
         address _callback_sender,
         IPoolManager _manager
@@ -20,7 +23,8 @@ contract LPHub is ILPHub, AbstractCallback, ImmutableState{
     
     function calculateFeesFromVolume(
         bytes memory encodedPoolLpMetrics
-    ) external view returns(uint256){
+    ) external returns(uint256){
+        emit Received(encodedPoolLpMetrics);
         return 1;
     }
     
