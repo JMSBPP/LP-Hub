@@ -65,24 +65,24 @@ contract VolumeLens is IReactive, AbstractPausableReactive{
         uniswapV4ChainId = _uniswapV4ChainId;
 
 
-        if (!vm) {
-            service.subscribe(
-                uniswapV4ChainId,
-                address(_poolManager),
-                UNISWAP_V4_SWAP_TOPIC_0,
-                REACTIVE_IGNORE,
-                REACTIVE_IGNORE,
-                REACTIVE_IGNORE
-            );
-            service.subscribe(
-                uniswapV4ChainId,
-                address(_lpHub),
-                INITIALIZE_TOPIC_0,
-                REACTIVE_IGNORE,
-                REACTIVE_IGNORE,
-                REACTIVE_IGNORE
-            );
-        }      
+        // if (!vm) {
+        //     service.subscribe(
+        //         uniswapV4ChainId,
+        //         address(_poolManager),
+        //         UNISWAP_V4_SWAP_TOPIC_0,
+        //         REACTIVE_IGNORE,
+        //         REACTIVE_IGNORE,
+        //         REACTIVE_IGNORE
+        //     );
+        //     service.subscribe(
+        //         uniswapV4ChainId,
+        //         address(_lpHub),
+        //         INITIALIZE_TOPIC_0,
+        //         REACTIVE_IGNORE,
+        //         REACTIVE_IGNORE,
+        //         REACTIVE_IGNORE
+        //     );
+        // }      
     }
 
     function getPausableSubscriptions() internal view override returns (Subscription[] memory) {

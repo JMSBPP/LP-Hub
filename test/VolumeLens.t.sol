@@ -34,7 +34,10 @@ contract VolumeLensTest is Test, Deployers {
     function setUp() public 
     {   
 
-        reactiveSepoliaForkId = vm.createFork("reactive-testnet");
+        reactiveSepoliaForkId = vm.createSelectFork("reactive-testnet");
+        vm.makePersistent(
+            address(0x0000000000000000000000000000000000000064)
+        );
         ethereumSepoliaForkId = vm.createSelectFork("sepolia");
         {            
             deployFreshManagerAndRouters();
@@ -54,6 +57,7 @@ contract VolumeLensTest is Test, Deployers {
                 manager
             );
             (currency0, currency1) = deployMintAndApprove2Currencies();
+
             (key, )= initPool(
                 currency0,
                 currency1,
