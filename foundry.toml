@@ -1,0 +1,28 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib", "node_modules"]
+auto_detect_remapppings = true
+
+skip = [
+    "lib/v4-periphery/lib/solmate/*"
+]
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "permit2/=lib/v4-periphery/lib/permit2/",
+    "solmate/=lib/v4-periphery/lib/v4-core/lib/solmate",
+    "@uniswap-foundation/=lib/foundational-hooks/src/",
+    "@uniswap/v4-periphery/=lib/v4-periphery/",
+    "@uniswap/v4-core/=lib/v4-periphery/lib/v4-core/",
+    "@cryptoalgebra/integral-core/=node_modules/@cryptoalgebra/integral-core/",
+    "@cryptoalgebra/integral-periphery/=node_modules/@cryptoalgebra/integral-periphery/",
+    "@cryptoalgebra/integral-base-plugin/=node_modules/@cryptoalgebra/integral-base-plugin/"
+]
+
+[rpc.endpoints]
+
+mainnet = "https://eth-mainnet.g.alchemy.com/v2/vmIxax9_LpniE6IH5M_xRokN4YSASHa6"
+
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+

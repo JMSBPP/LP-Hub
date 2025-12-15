@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@cryptoalgebra/integral-base-plugin": "^1.2.4",
+    "@cryptoalgebra/integral-core": "^1.2.9",
+    "@cryptoalgebra/integral-periphery": "^1.3.0-alpha.1"
+  },
+  "name": "lps",
+  "version": "1.0.0",
+  "description": "**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-foundry": "^1.2.0",
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.27.2"
+  }
+}
