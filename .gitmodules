@@ -10,3 +10,6 @@
 [submodule "lib/foundational-hooks"]
 	path = lib/foundational-hooks
 	url = https://github.com/uniswapfoundation/foundational-hooks
+[submodule "lib/solady"]
+	path = lib/solady
+	url = https://github.com/Vectorized/solady

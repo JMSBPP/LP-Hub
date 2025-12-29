@@ -16,7 +16,8 @@ remappings = [
     "@uniswap/v4-core/=lib/v4-periphery/lib/v4-core/",
     "@cryptoalgebra/integral-core/=node_modules/@cryptoalgebra/integral-core/",
     "@cryptoalgebra/integral-periphery/=node_modules/@cryptoalgebra/integral-periphery/",
-    "@cryptoalgebra/integral-base-plugin/=node_modules/@cryptoalgebra/integral-base-plugin/"
+    "@cryptoalgebra/integral-base-plugin/=node_modules/@cryptoalgebra/integral-base-plugin/",
+    "solady/=lib/solady/"
 ]
 
 [rpc.endpoints]
