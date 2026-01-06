@@ -7,6 +7,7 @@ auto_detect_remapppings = true
 skip = [
     "lib/v4-periphery/lib/solmate/*"
 ]
+
 remappings = [
     "forge-std/=lib/forge-std/src/",
     "permit2/=lib/v4-periphery/lib/permit2/",
@@ -17,7 +18,9 @@ remappings = [
     "@cryptoalgebra/integral-core/=node_modules/@cryptoalgebra/integral-core/",
     "@cryptoalgebra/integral-periphery/=node_modules/@cryptoalgebra/integral-periphery/",
     "@cryptoalgebra/integral-base-plugin/=node_modules/@cryptoalgebra/integral-base-plugin/",
-    "solady/=lib/solady/"
+    "solady/=lib/solady/",
+    "@bunni-v2/=lib/bunni-v2/",
+    "@liquidity-distribution-lab/=lib/Liquidity-Distributions-Lab/"
 ]
 
 [rpc.endpoints]
