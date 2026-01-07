@@ -18,7 +18,7 @@ remappings = [
     "@cryptoalgebra/integral-core/=node_modules/@cryptoalgebra/integral-core/",
     "@cryptoalgebra/integral-periphery/=node_modules/@cryptoalgebra/integral-periphery/",
     "@cryptoalgebra/integral-base-plugin/=node_modules/@cryptoalgebra/integral-base-plugin/",
-    "solady/=lib/solady/",
+    "solady/=lib/solady/src/",
     "@bunni-v2/=lib/bunni-v2/",
     "@liquidity-distribution-lab/=lib/Liquidity-Distributions-Lab/"
 ]
